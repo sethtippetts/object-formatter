@@ -1,7 +1,5 @@
 # Object Formatter [![NPM version](https://img.shields.io/npm/v/obj-format.svg)](https://www.npmjs.org/package/obj-format) [![Build Status](https://travis-ci.org/SethTippetts/object-formatter.svg?branch=master)](https://travis-ci.org/SethTippetts/object-formatter)
 
-
-
 Of course your objects are formatted nicely internally. You wrote the code, and you're a genius. But wait! Evil 3rd party API says your objects are crap, and they want them formatted THE RIGHT (their) WAY!
 
 Never fear, Object Formatter™ is here!
@@ -17,8 +15,14 @@ $ npm install object-formatter
 #### Creating a Formatter instance:
 ```
 var Formatter = require('object-formatter');
+/* Note: You can totally store your maps as JSON files and require them. 
+ * Like cloth diapers, JSON mapping files are nice, tidy, and reusable! */
 var destMap = {
-  "!project_name": "$1",
+
+  // Value is replaced by variable and ignored from object search
+  "!project_name": "$1 is great!",
+
+  // Search property is replaced with supplied variables
   "project_id": "$2.id",
   "first_name": "person.first",
   "last_name": "person.last",
@@ -27,6 +31,8 @@ var destMap = {
       "lat": "person.address.geo.lat"
     }
   },
+
+  // Value ignored by parser
   "!ip_address": "127.0.0.1"
 }
 var THIRD_PARTY_FORMAT = new Formatter(destMap);
@@ -60,7 +66,7 @@ THIRD_PARTY_FORMAT.format({
 /* 
 Returns:
 {
-  "project_name": "Finance",
+  "project_name": "Finance is great!",
   "project_id": "123",
   "first_name": "John",
   "last_name": "Zoidberg",
@@ -73,6 +79,29 @@ Returns:
 }
 */
 ```
+
+### Methods
+
+#### `format(obj, vars)` _instance method_
+
+Populates a new copy of the mapping object formatted data
+
+##### Arguments
+- `obj` - Source object to be parsed. Should match values in the destination object supplied in the constructor
+- `vars` - (Optional) Array of variables to be replaced in matching strings (I.E. ['foo','bar'] + "$2.$1-$1" => "bar.foo-foo")
+
+##### Returns
+Destination object populated with source values
+
+#### `get(props, obj)` _class method_
+Class method. Gets the property array or dot-notated field from an object. Null safe.
+
+##### Arguments
+- `props`     Array of properties in nested order or dot notated string (I.E. ["foo", "bar", "baz"] OR "foo.bar.baz")
+- `obj`       Source object to search.
+
+##### Returns
+Value found from search or undefined.
 
 ### Worried about `undefined`? Worry no longer!
 

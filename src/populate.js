@@ -15,7 +15,7 @@ function populate(src,dest,match){
           if(typeof match === 'function'){
             val = val.replace(/(\$\d+)/, match);
           }
-          var newVal = ((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || (dest[prop] = Formatter.get(val.split('.'), src))), type = typeof newVal;
+          var newVal = ((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || (dest[prop] = getField(val.split('.'), src))), type = typeof newVal;
           if(!newVal && type !== 'boolean' && type !== 'number'){
             delete dest[prop];
           }
