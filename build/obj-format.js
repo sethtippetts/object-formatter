@@ -35,10 +35,11 @@ function populate(src,dest,match){
       var val = dest[prop];
       switch(typeof val){
         case 'string':
-          if(match){
+          if(typeof match === 'function'){
             val = val.replace(/(\$\d+)/, match);
           }
-          if((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || typeof (dest[prop] = getField(val.split('.'), src)) === 'undefined'){
+          var newVal = ((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || (dest[prop] = Formatter.get(val.split('.'), src))), type = typeof newVal;
+          if(!newVal && type !== 'boolean' && type !== 'number'){
             delete dest[prop];
           }
           break;
@@ -60,10 +61,16 @@ function populate(src,dest,match){
  * @param  {Object}   obj       Source object to searchj.
  * @return {Object}             Value found from search or undefined.
  */
+Formatter.get = function(props, obj){
+  if(typeof props === 'string'){
+    props = props.split('.');
+  }
+  return getField(props,obj);
+};
 function getField(props, obj){
   if(typeof obj === 'object'){
     var prop = props.shift();
     return props.length===0?obj[prop]:getField(props, obj[prop]);
   }
-};
+}
 module.exports = Formatter;

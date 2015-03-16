@@ -20,12 +20,6 @@ gulp.task('build:obj-format', function() {
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('build:elvis', function(){
-  gulp.src('src/elvis.js')
-    .pipe(footer('module.exports = getField;'))
-    .pipe(gulp.dest('build'));
-});
-
 gulp.task('test', function() {
   gulp.src('test/*.js', {
       read: false

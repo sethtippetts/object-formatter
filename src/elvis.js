@@ -10,4 +10,10 @@ function getField(props, obj){
     var prop = props.shift();
     return props.length===0?obj[prop]:getField(props, obj[prop]);
   }
+}
+Formatter.get = function(props, obj){
+  if(typeof props === 'string'){
+    props = props.split('.');
+  }
+  return getField(props,obj);
 };

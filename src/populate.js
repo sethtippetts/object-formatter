@@ -12,10 +12,11 @@ function populate(src,dest,match){
       var val = dest[prop];
       switch(typeof val){
         case 'string':
-          if(match){
+          if(typeof match === 'function'){
             val = val.replace(/(\$\d+)/, match);
           }
-          if((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || typeof (dest[prop] = getField(val.split('.'), src)) === 'undefined'){
+          var newVal = ((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || (dest[prop] = Formatter.get(val.split('.'), src))), type = typeof newVal;
+          if(!newVal && type !== 'boolean' && type !== 'number'){
             delete dest[prop];
           }
           break;
