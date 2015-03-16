@@ -1,8 +1,8 @@
 {
   "name": "object-formatter",
   "version": "1.0.0",
-  "description": "Creates a formatting template to parse thousands of objects with null-safe variables, functions, and ignores. ",
-  "main": "sf.formatter.js",
+  "description": "Creates a formatting template to parse collections with null-safe variables, functions, and ignores.",
+  "main": "build/obj-form.js",
   "scripts": {
     "test": "gulp test"
   },
@@ -14,12 +14,21 @@
     "object",
     "formatting",
     "parse",
-    "collection"
+    "collection",
+    "utility"
   ],
   "author": "Seth Tippetts <sethtippetts@gmail.com> (http://sethtippetts.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SethTippetts/object-formatter/issues"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-footer": "^1.0.5",
+    "gulp-header": "^1.2.2",
+    "gulp-mocha": "^2.0.0"
   },
   "homepage": "https://github.com/SethTippetts/object-formatter"
 }
