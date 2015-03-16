@@ -5,9 +5,9 @@ var gulp = require('gulp'),
   mocha = require('gulp-mocha');
 
 gulp.task('default', ['build','test']);
-gulp.task('build', ['build:obj-format', 'build:elvis']);
+gulp.task('build', ['build']);
 
-gulp.task('build:obj-format', function() {
+gulp.task('build', function() {
   gulp.src([
       'src/formatter.js',
       'src/format.js',

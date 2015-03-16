@@ -61,16 +61,16 @@ function populate(src,dest,match){
  * @param  {Object}   obj       Source object to searchj.
  * @return {Object}             Value found from search or undefined.
  */
-Formatter.get = function(props, obj){
-  if(typeof props === 'string'){
-    props = props.split('.');
-  }
-  return getField(props,obj);
-};
 function getField(props, obj){
   if(typeof obj === 'object'){
     var prop = props.shift();
     return props.length===0?obj[prop]:getField(props, obj[prop]);
   }
 }
+Formatter.get = function(props, obj){
+  if(typeof props === 'string'){
+    props = props.split('.');
+  }
+  return getField(props,obj);
+};
 module.exports = Formatter;
