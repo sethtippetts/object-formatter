@@ -24,6 +24,10 @@ var destMap = {
 var THIRD_PARTY_FORMAT = new Formatter(destMap);
 ```
 
+A property with a `!` prefix will be ignored by the object-looker-upper (elvis operator).
+
+Any value containing a `$n` will be replaced with its corresponding variable in the array you pass before property lookup.
+
 #### Using the formatter
 ```
 THIRD_PARTY_FORMAT.format({
