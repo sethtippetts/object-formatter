@@ -2,24 +2,21 @@ var gulp = require('gulp'),
   header = require('gulp-header'),
   footer = require('gulp-footer'),
   concat = require('gulp-concat'),
-  uglify = require('gulp-uglify'),
-  mocha = require('gulp-mocha'),
-  prettify = require('gulp-js-prettify');
+  mocha = require('gulp-mocha');
 
 gulp.task('default', ['build','test']);
-gulp.task('build', ['build:obj-form', 'build:elvis']);
+gulp.task('build', ['build:obj-format', 'build:elvis']);
 
-gulp.task('build:obj-form', function() {
+gulp.task('build:obj-format', function() {
   gulp.src([
       'src/formatter.js',
       'src/format.js',
       'src/populate.js',
       'src/elvis.js',
     ])
-    .pipe(concat('obj-form.js'))
+    .pipe(concat('obj-format.js'))
     .pipe(header('\n\'use strict\'\n'))
     .pipe(footer('module.exports = Formatter;'))
-    .pipe(prettify())
     .pipe(gulp.dest('build'));
 });
 
