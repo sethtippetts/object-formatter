@@ -2,7 +2,7 @@
 
 var expect = require('chai').expect;
 
-var Formatter = require('../build/obj-form.js')
+var Formatter = require('../build/obj-format')
   , destMap = {
     id__c: 'account_no',
     '!firstName__c': '$2 is great',
