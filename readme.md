@@ -1,6 +1,7 @@
 # Object Formatter
 
 [![NPM version](https://img.shields.io/npm/v/object-formatter.svg)](https://www.npmjs.org/package/object-formatter)
+[![Build Status](https://travis-ci.org/SethTippetts/object-formatter.svg?branch=master)](https://travis-ci.org/SethTippetts/object-formatter)
 
 Of course your objects are formatted nicely internally. You wrote the code, and you're a genius. But wait! Evil 3rd party API says your objects are crap, and they want them formatted THE RIGHT (their) WAY!
 
