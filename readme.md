@@ -6,7 +6,13 @@ Of course your objects are formatted nicely internally. You wrote the code, and 
 
 Never fear, Object Formatter™ is here!
 
-### Show me how to use it already!
+## Show me how to use it already!
+
+### Installation
+
+```sh
+$ npm install object-formatter
+```
 
 #### Creating a Formatter instance:
 ```
