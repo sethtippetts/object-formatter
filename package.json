@@ -23,7 +23,7 @@
     "url": "https://github.com/SethTippetts/object-formatter/issues"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^2.1.2",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-footer": "^1.0.5",
