@@ -82,30 +82,30 @@ Returns:
 
 ### Methods
 
-#### `format(obj, vars)` _instance method_
+##### `format(obj, vars)` _instance method_
 
 Populates a new copy of the mapping object formatted data
 
-##### Arguments
+###### Arguments
 - `obj` - Source object to be parsed. Should match values in the destination object supplied in the constructor
-- `vars` - (Optional) Array of variables to be replaced in matching strings (I.E. ['foo','bar'] + "$2.$1-$1" => "bar.foo-foo")
+- `vars` - (Optional) Array of variables to be replaced in matching strings (I.E. `['foo','bar'] + "$2.$1-$1"` => `"bar.foo-foo"`)
 
-##### Returns
+###### Returns
 Destination object populated with source values
 
-#### `get(props, obj)` _class method_
+##### `get(props, obj)` _class method_
 Class method. Gets the property array or dot-notated field from an object. Null safe.
 
-##### Arguments
-- `props`     Array of properties in nested order or dot notated string (I.E. ["foo", "bar", "baz"] OR "foo.bar.baz")
+###### Arguments
+- `props`     Array of properties in nested order or dot notated string (I.E. `["foo", "bar", "baz"]` OR `"foo.bar.baz"`)
 - `obj`       Source object to search.
 
-##### Returns
+###### Returns
 Value found from search or undefined.
 
 ### Worried about `undefined`? Worry no longer!
 
 Object Formatter takes all the worry out of property lookups. You're welcome.
 
-### Problems, issues, rude remarks?
+### Problems? Issues? Rude remarks?
 Send me an email at sethtippetts@gmail.com, or die in a hole! Whichever comes first!
