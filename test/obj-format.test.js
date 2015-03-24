@@ -5,10 +5,11 @@ var expect = require('chai').expect;
 var Formatter = require('../build/obj-format')
   , destMap = {
     id__c: 'account_no',
+    '!person.name.first': 'person',
     friends: 'person.friends',
-    '!firstName__c': '$2 is great',
+    firstName__c: '!$2 is great',
     middleName: 'person.name.middle',
-    '!lastName__c': 'person.name.last',
+    lastName__c: '!person.name.last',
     address__c: {
       state__c: 'address.state',
       geo__c: {
@@ -67,6 +68,9 @@ describe('Object Formatter', function(){
     });
     it('should remove empty strings', function(){
       expect(dest).not.to.have.property('middleName');
+    });
+    it('should replace destination properties prefixed with "!"', function(){
+      expect(dest).to.have.property('John');
     });
   });
   describe('#get()', function(){

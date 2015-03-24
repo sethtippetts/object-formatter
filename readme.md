@@ -20,7 +20,7 @@ var Formatter = require('object-formatter');
 var destMap = {
 
   // Value is replaced by variable and ignored from object search
-  "!project_name": "$1 is great!",
+  project_name: "!$1 is great!",
 
   // Search property is replaced with supplied variables
   "project_id": "$2.id",
@@ -37,10 +37,17 @@ var destMap = {
 }
 var THIRD_PARTY_FORMAT = new Formatter(destMap);
 ```
+#### Default Behavior
 
-A property with a `!` prefix will be ignored by the object-looker-upper (elvis operator).
+Properties are not parsed by the object-looker-upper (elvis operator).
 
-Any value containing a `$n` will be replaced with its corresponding variable in the array you pass before property lookup.
+Values are parsed by the object-looker-upper (Really? Can't think of better name?).
+
+Any property or value containing a `$n` will be replaced with its corresponding variable in the array you pass before property lookup.
+
+#### Negating default behavior
+
+Maybe you want a property to be a value from a source object, or maybe you want a constant string as a value. Just prefix your property or value with `!` and the default behavior will be reversed!
 
 #### Using the formatter
 ```

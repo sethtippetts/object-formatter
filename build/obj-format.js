@@ -32,19 +32,21 @@ Formatter.prototype.format = function(src, vars){
 function populate(src,dest,match){
   for (var prop in dest){
     if(dest.hasOwnProperty(prop)){
-      var val = dest[prop];
+      var val = dest[prop]
+        , newProp = evaluate(prop, src, match, false);
+      if(newProp !== prop){
+        delete dest[prop];
+        prop = newProp;
+      }
       switch(typeof val){
         case 'string':
-          if(typeof match === 'function'){
-            val = val.replace(/(\$\d+)/, match);
-          }
-          var newVal = ((prop.charCodeAt(0) === 33 && (dest[prop.substr(1)] = val)) || (dest[prop] = Formatter.get(val.split('.'), src))), type = typeof newVal;
-          if(!newVal && type !== 'boolean' && type !== 'number'){
+          dest[prop] = val = evaluate(val, src, match, true);
+          if(!prop || (!val && val !== 0 && val !== false)){
             delete dest[prop];
           }
           break;
         case 'object':
-          populate(src, dest[prop], match);
+          populate(src, val, match);
           break;
         case 'function':
           dest[prop] = val();
@@ -52,6 +54,20 @@ function populate(src,dest,match){
     }
   }
   return dest;
+}
+
+function evaluate(val, src, match, parse){
+  if(typeof match === 'function'){
+    val = val.replace(/(\$\d+)/, match);
+  }
+  if(33 === val.charCodeAt(0)){
+    parse = !parse;
+    val = val.substr(1);
+  } 
+  if(parse){
+    val = getField(val.split('.'), src);
+  }
+  return val;
 }
 
 /**
