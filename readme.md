@@ -9,13 +9,13 @@ Never fear, Object Formatter™ is here!
 ### Installation
 
 ```sh
-$ npm install object-formatter
+$ npm install obj-format
 ```
 
 #### Creating a Formatter instance:
 ```
 var Formatter = require('object-formatter');
-/* Note: You can totally store your maps as JSON files and require them. 
+/* Note: You can totally store your maps as JSON files and require them.
  * Like cloth diapers, JSON mapping files are nice, tidy, and reusable! */
 var destMap = {
 
@@ -70,7 +70,7 @@ THIRD_PARTY_FORMAT.format({
   }
 }, ['Finance', 'finance']);
 
-/* 
+/*
 Returns:
 {
   "project_name": "Finance is great!",
