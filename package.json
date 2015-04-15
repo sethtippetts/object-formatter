@@ -1,6 +1,6 @@
 {
   "name": "obj-format",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Creates a formatting template to parse collections with null-safe variables, functions, and ignores. Useful for 3rd party API formatting.",
   "main": "build/obj-format.js",
   "scripts": {

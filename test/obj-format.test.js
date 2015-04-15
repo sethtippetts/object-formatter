@@ -4,6 +4,7 @@ var expect = require('chai').expect;
 
 var Formatter = require('../build/obj-format')
   , destMap = {
+    test__id: '!$8',
     id__c: 'account_no',
     '!person.name.first': 'person',
     friends: 'person.friends',
@@ -65,6 +66,9 @@ describe('Object Formatter', function(){
     });
     it('should remove undefined properties', function(){
       expect(dest).not.to.have.property('phone_number__c');
+    });
+    it('should remove undefined variables', function(){
+      expect(dest).not.to.have.property('test__id');
     });
     it('should remove empty strings', function(){
       expect(dest).not.to.have.property('middleName');
