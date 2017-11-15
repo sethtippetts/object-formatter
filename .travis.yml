@@ -1,11 +1,12 @@
 language: node_js
 node_js:
-  - 0.10
-  - 0.12
+  - 4
+  - 6
+  - 8
 branches:
   only:
     - master
     - /^greenkeeper/.*$/
-script: ./node_modules/gulp/bin/gulp.js test
+script: npm test
 notifications:
   email: true
