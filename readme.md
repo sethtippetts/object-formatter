@@ -16,10 +16,10 @@ $ npm install obj-format
 
 #### Creating a Formatter instance:
 ```
-var Formatter = require('object-formatter');
+const Formatter = require('object-formatter');
 /* Note: You can totally store your maps as JSON files and require them.
  * Like cloth diapers, JSON mapping files are nice, tidy, and reusable! */
-var destMap = {
+const destMap = {
 
   // Value is replaced by variable and ignored from object search
   project_name: "!$1 is great!",
@@ -37,7 +37,7 @@ var destMap = {
   // Value ignored by parser
   "!ip_address": "127.0.0.1"
 }
-var THIRD_PARTY_FORMAT = new Formatter(destMap);
+const THIRD_PARTY_FORMAT = new Formatter(destMap);
 ```
 #### Default Behavior
 
