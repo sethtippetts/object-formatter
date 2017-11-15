@@ -1,0 +1,41 @@
+{
+  "destMap": {
+    "test__id": "!$8",
+    "id__c": "account_no",
+    "!person.name.first": "person",
+    "friends": "person.friends",
+    "firstName__c": "!$2 is great",
+    "middleName": "person.name.middle",
+    "lastName__c": "!person.name.last",
+    "address__c": {
+      "state__c": "address.state",
+      "geo__c": {
+        "lat__c": "address.$1.lat",
+        "long__c": "address.$1.lng"
+      }
+    },
+    "address_street__c": "address.street",
+    "phone_number__c": "person.phone"
+  },
+  "testSrc": {
+    "account_no": 80102342,
+    "address": {
+      "street": "1234 Sesame Street",
+      "state": "NY",
+      "zip": "90210",
+      "geo": {
+        "lat": -1.2345,
+        "lng": 1.2345
+      }
+    },
+    "person": {
+      "name": {
+        "first": "John",
+        "middle": "",
+        "last": "Zoidberg"
+      },
+      "friends": []
+    },
+    "email": "test@example.com"
+  }
+}

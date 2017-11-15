@@ -3,12 +3,14 @@
   "version": "1.0.6",
   "description": "Creates a formatting template to parse collections with null-safe variables, functions, and ignores. Useful for 3rd party API formatting.",
   "main": "build/obj-format.js",
+  "engines" : { "node" : ">=4.8.4" },
   "scripts": {
-    "test": "gulp test"
+    "test": "mocha test",
+    "posttest": "eslint ."
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SethTippetts/object-formatter.git"
+    "url": "https://github.com/mostcowbell/object-formatter.git"
   },
   "keywords": [
     "object",
@@ -20,15 +22,17 @@
   "author": "Seth Tippetts <sethtippetts@gmail.com> (http://sethtippetts.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/SethTippetts/object-formatter/issues"
+    "url": "https://github.com/mostcowbell/object-formatter/issues"
   },
   "devDependencies": {
     "chai": "^2.1.2",
-    "gulp": "^3.8.11",
-    "gulp-concat": "^2.5.2",
-    "gulp-footer": "^1.0.5",
-    "gulp-header": "^1.2.2",
-    "gulp-mocha": "^2.0.0"
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^4.0.1"
   },
-  "homepage": "https://github.com/SethTippetts/object-formatter"
+  "homepage": "https://github.com/mostcowbell/object-formatter"
 }
