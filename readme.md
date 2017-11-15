@@ -1,5 +1,7 @@
-# Object Formatter [![NPM version](https://img.shields.io/npm/v/obj-format.svg)](https://www.npmjs.org/package/obj-format) [![Build Status](https://travis-ci.org/SethTippetts/object-formatter.svg?branch=master)](https://travis-ci.org/SethTippetts/object-formatter)
+# Object Formatter
 
+[![NPM version](https://img.shields.io/npm/v/obj-format.svg)](https://www.npmjs.org/package/obj-format)
+[![Build Status](https://travis-ci.org/mostcowbell/object-formatter.svg?branch=master)](https://travis-ci.org/mostcowbell/object-formatter)
 [![Greenkeeper badge](https://badges.greenkeeper.io/mostcowbell/object-formatter.svg)](https://greenkeeper.io/)
 
 Of course your objects are formatted nicely internally. You wrote the code, and you're a genius. But wait! Evil 3rd party API says your objects are crap, and they want them formatted THE RIGHT (their) WAY!
